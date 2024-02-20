@@ -1,45 +1,37 @@
 import React from "react";
 import SideNav from '@/app/ui/dashboard/(sidenav)/sidenav';
 import Nav from "@/app/ui/dashboard/nav";
+import MediaCenter from "@/app/ui/dashboard/(media_player)/mediacenter";
+import SideNavLinks from "@/app/ui/dashboard/(sidenav)/sidenav-links";
+import Library from "@/app/ui/dashboard/(sidenav)/library";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({children}: { children: React.ReactNode }) {
     return (
-        <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
-            <div className="w-64 flex-none">
-                <SideNav/>
+        <div className="flex flex-col">
+
+            <div className="flex flex-row relative">
+
+                {/*px-3 py-4 gap-2*/}
+                <div className="flex flex-col min-w-20 h-dvh bg-orange-600 overflow-auto items-center py-2.5 gap-4">
+                    <SideNav />
+                </div>
+
+
+                <div className="flex flex-col">
+                    <div className="flex flex-row h-14 w-screen bg-blue-600">
+                        <Nav />
+                    </div>
+
+                    {/*Page Content*/}
+                    <div>{children}</div>
+                </div>
+
             </div>
-            <div className="flex flex-col flex-grow">
-                <Nav />
+
+            {/*MediaCenter*/}
+            <div className="flex flex-row fixed inset-x-0 bottom-0 h-24 bg-black justify-center">
+                <p>Media Center</p>
             </div>
-            <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
-            {/*<div className="flex">*/}
-
-            {/*    <div className="w-64 bg-gray-200">*/}
-
-            {/*    </div>*/}
-
-
-            {/*    <div className="flex flex-col flex-grow">*/}
-
-            {/*        <nav className="bg-gray-800 text-white px-4 py-2">*/}
-            {/*            <div className="container mx-auto">*/}
-
-            {/*                <a href="#" className="text-xl font-bold">Logo</a>*/}
-            {/*                <div className="flex justify-end space-x-4">*/}
-            {/*                    <a href="#" className="hover:text-gray-300">Home</a>*/}
-            {/*                    <a href="#" className="hover:text-gray-300">About</a>*/}
-            {/*                    <a href="#" className="hover:text-gray-300">Contact</a>*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*        </nav>*/}
-
-
-            {/*        <main className="p-4">*/}
-            {/*            <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>*/}
-            {/*        </main>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-
         </div>
     );
 }
