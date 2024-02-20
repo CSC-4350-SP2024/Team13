@@ -1,6 +1,6 @@
 'use client';
 
-import { HomeIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+import { HomeIcon, MagnifyingGlassIcon, MusicalNoteIcon } from "@heroicons/react/16/solid";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
@@ -14,7 +14,12 @@ const links = [
     {
         name: 'Browse',
         href: '/dashboard/browse',
-        icon: MagnifyingGlassIcon,
+        icon: MagnifyingGlassIcon
+    },
+    {
+        name: 'Library',
+        href: '/dashboard/library',
+        icon: MusicalNoteIcon
     }
 ];
 
@@ -30,14 +35,15 @@ export default function SideNavLinks() {
                         key={link.name}
                         href={link.href}
                         className={clsx(
-                            'flex h-[48px] grow items-center justify-start gap-6 rounded-md p-2 text-md font-medium hover:text-white md:flex-none md:justify-start md:p-2 md:px-3',
+                            'w-9 hover:text-white',
                             {
                                 'text-white': pathname === link.href,
+                                'text-hex/70': pathname != link.href
                             },
                         )}
                     >
-                        <LinkIcon className="w-8" />
-                        <p className="hidden md:block">{link.name}</p>
+                        <LinkIcon />
+                        {/*<p className="hidden md:block">{link.name}</p>*/}
                     </Link>
                 );
             })}
