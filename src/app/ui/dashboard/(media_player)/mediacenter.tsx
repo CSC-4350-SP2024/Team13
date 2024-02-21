@@ -1,16 +1,22 @@
-import {PlayCircleIcon, PauseCircleIcon, ArrowPathRoundedSquareIcon, ForwardIcon, BackwardIcon} from "@heroicons/react/16/solid";
+'use client';
+
+import { PlayCircle, PauseCircle, Repeat, RepeatOnce,SkipBack, SkipForward, ShuffleAngular, Queue, SpeakerSimpleHigh } from "@phosphor-icons/react";
+import Image from 'next/image'
 
 export default function MediaCenter() {
     return (
-       <div className="flex flex-row min-h-28 bg-black items-center justify-center">
-           {/*<p className="text-white">Media Center</p>*/}
-           <div className="flex flex-row text-white space-x-3">
-               <i className="bi bi-shuffle py-5"></i>
-               <BackwardIcon className="w-8"/>
-               <PlayCircleIcon className="w-16"/>
-               <ForwardIcon className="w-8"/>
-               <ArrowPathRoundedSquareIcon className="w-5"/>
-           </div>
+       <div className="flex flex-row min-h-28 bg-black">
+
+               <div className="flex text-white space-x-3 items-center">
+
+                       <ShuffleAngular/>
+                       <SkipBack size={25} weight="fill"/>
+                       <PlayCircle size={60} weight="fill"/>
+                       <SkipForward size={25} weight="fill"/>
+                       <Repeat/>
+
+               </div>
+
        </div>
     );
 }

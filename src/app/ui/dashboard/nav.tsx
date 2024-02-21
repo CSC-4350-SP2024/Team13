@@ -1,6 +1,6 @@
 'use client'
 
-import { UserIcon, ChevronLeftIcon, ChevronRightIcon  } from '@heroicons/react/16/solid';
+import { CaretLeft, CaretRight, User } from '@phosphor-icons/react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
@@ -18,10 +18,10 @@ export default function Nav() {
     }
 
     return (
-       <div className="flex flex-row h-16 justify-between bg-hex-gray rounded-2xl">
-           <div className="flex space-x-1">
-               <ChevronLeftIcon className="text-hex/70 w-10 hover:text-white" onClick={handleGoBack} />
-               <ChevronRightIcon className="text-hex/70 w-10 hover:text-white" onClick={handleGoForward} />
+       <div className="flex flex-row h-16 justify-between rounded-2xl">
+           <div className="flex space-x-3 py-3 px-5">
+               <CaretLeft size={35} className="text-hex/70 hover:text-white" onClick={handleGoBack} />
+               <CaretRight size={35} className="text-hex/70 hover:text-white" onClick={handleGoForward} />
            </div>
 
 
@@ -29,14 +29,14 @@ export default function Nav() {
                key='Profile'
                href='/dashboard/profile'
                className={clsx(
-                   'flex w-8 hover:text-white',
+                   'px-5 py-3 hover:text-white',
                    {
                        'text-white': pathname === '/dashboard/profile',
                        'text-hex/70': pathname != '/dashboard/profile'
                    },
                )}
            >
-               <UserIcon />
+               <User size={35}/>
            </Link>
 
        </div>
